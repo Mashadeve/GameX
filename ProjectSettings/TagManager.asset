@@ -56,6 +56,12 @@ TagManager:
   - name: CloudsWhite
     uniqueID: 148827201
     locked: 0
+  - name: Trees
+    uniqueID: 4260505425
+    locked: 0
+  - name: House
+    uniqueID: 3889153393
+    locked: 0
   - name: Foreground
     uniqueID: 1181099575
     locked: 0
