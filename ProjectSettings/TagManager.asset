@@ -13,12 +13,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Background
+  - Moon
+  - Mountains
+  - CloudsGray
+  - CloudsWhite
+  - Foreground
   - 
   - 
   - 
@@ -40,4 +40,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BasicBackground
+    uniqueID: 1967607139
+    locked: 0
+  - name: Moon
+    uniqueID: 1840343833
+    locked: 0
+  - name: Mountains
+    uniqueID: 3689061943
+    locked: 0
+  - name: CloudsGray
+    uniqueID: 2582583907
+    locked: 0
+  - name: CloudsWhite
+    uniqueID: 148827201
+    locked: 0
+  - name: Foreground
+    uniqueID: 1181099575
     locked: 0
