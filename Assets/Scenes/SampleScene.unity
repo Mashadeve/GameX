@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 166047168}
   - component: {fileID: 166047167}
   m_Layer: 0
-  m_Name: Vasen
+  m_Name: HouseLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1253,7 +1253,7 @@ GameObject:
   - component: {fileID: 1465408355}
   - component: {fileID: 1465408354}
   m_Layer: 0
-  m_Name: Oikea
+  m_Name: HouseRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
