@@ -24,15 +24,14 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.CompareTag("Ground"))
         {
             isGrounded = true;
-        }       
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
-    {       
-        {
-            isGrounded = false;
-        }      
+    {
+        isGrounded = false;
     }
+
     // Update is called once per frame
     void Update()
     {
