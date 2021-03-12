@@ -11,6 +11,12 @@ public class PlayerController : MonoBehaviour
     public float jumpForce = 10f;
     [SerializeField] private GameObject sword;
 
+<<<<<<< Updated upstream
+=======
+    
+
+    private Rigidbody2D rb;
+>>>>>>> Stashed changes
 
     private Rigidbody2D rb;
     private bool isGrounded;
