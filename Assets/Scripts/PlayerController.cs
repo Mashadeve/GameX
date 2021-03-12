@@ -19,14 +19,22 @@ public class PlayerController : MonoBehaviour
 >>>>>>> Stashed changes
 
     private Rigidbody2D rb;
+    private bool direction;
     private bool isGrounded;
-    private bool isRotated;
+    private bool moveRight;
+    private bool moveLeft;
+    private bool canMove;
 
-    
-// Start is called before the first frame update
-void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        direction = true;
+
+        //if (!moveRight || moveLeft)
+        //{
+        //    canMove = true;
+        //}
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -53,27 +61,52 @@ void Start()
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
 
-        if (Input.GetAxisRaw("Horizontal") > 0 && isRotated == false)
-        {
-            GetComponent<SpriteRenderer>().flipX = false;
-            if (isRotated == false)
-            {
-                sword.transform.Rotate(new Vector2(transform.rotation.x, 0));
-                isRotated = true;
-            }
-            
-        }
-        else if (Input.GetAxisRaw("Horizontal") < 0 && isRotated == true)
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
-            if (isRotated == true)
-            {
-                sword.transform.Rotate(new Vector2(transform.rotation.x, -180));
-                isRotated = false;
-            }
-            
-        }       
-    }
+        //if (!direction)
+        //{
+        //    if (Input.GetAxisRaw("Horizontal") > 0)
+        //    {
+        //        GetComponent<SpriteRenderer>().flipX = false;
+        //        sword.transform.Rotate(new Vector2(transform.rotation.x, 0));
+        //        direction = true;
+        //    }
+        //}
 
-    
+        //if (direction)
+        //{           
+        //    if (Input.GetAxisRaw("Horizontal") < 0)
+        //    {
+        //        GetComponent<SpriteRenderer>().flipX = true;
+        //        sword.transform.Rotate(new Vector2(transform.rotation.x, -180));
+        //        direction = false;
+        //    }
+        //}
+        //if (canMove)
+        //{
+        //    if (Input.GetAxisRaw("Horizontal") > 0)
+        //    {
+        //        moveRight = true;
+        //        GetComponent<SpriteRenderer>().flipX = false;
+        //        if (moveRight)
+        //        {
+        //            sword.transform.Rotate(new Vector2(transform.rotation.x, 0));
+        //        }
+                
+                
+        //    }
+        //    else if (Input.GetAxisRaw("Horizontal") < 0)
+        //    {
+        //        moveLeft = true;
+        //        GetComponent<SpriteRenderer>().flipX = true;
+        //        if (moveLeft)
+        //        {
+        //            sword.transform.Rotate(new Vector2(transform.rotation.x, -180));
+        //        }
+
+
+        //    }
+        //}
+
+        
+
+    }
 }
