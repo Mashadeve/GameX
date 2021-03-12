@@ -42,6 +42,16 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }       
+        }
+
+        if (Input.GetAxisRaw("Horizontal") > 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else if (Input.GetAxisRaw("Horizontal") < 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+
     }
 }
