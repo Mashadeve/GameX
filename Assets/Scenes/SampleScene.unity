@@ -1608,7 +1608,7 @@ MonoBehaviour:
   moveVertical: 0
   jump: 0
   movementSpeed: 10
-  jumpForce: 150
+  jumpForce: 250
 --- !u!1 &1232188887
 GameObject:
   m_ObjectHideFlags: 0
