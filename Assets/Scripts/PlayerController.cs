@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [HideInInspector]
     public float moveHorizontal, moveVertical, jump;
     [SerializeField]
     public float movementSpeed = 2.0f;
