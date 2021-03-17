@@ -1,20 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
     [HideInInspector]
-    public float moveHorizontal, moveVertical, jump;
+    public float moveHorizontal, moveVertical, jump, xScale;
     [SerializeField]
     public float movementSpeed = 2.0f;
     [SerializeField]
     public float jumpForce = 10f;
-
+    [SerializeField] private GameObject player;
     private Rigidbody2D rb;
 
     private bool isGrounded;
-    
+
+
+    private void Awake()
+    {
+        xScale = transform.localScale.x;
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,13 +53,23 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
 
-        if (Input.GetAxisRaw("Horizontal") > 0)
+        HandleMovement();
+
+    }
+
+    private void FixedUpdate()
+    {
+        rb.velocity = new Vector2(moveHorizontal * movementSpeed, rb.velocity.y);
+    }
+
+    private void HandleMovement()
+    {
+        moveHorizontal = Input.GetAxisRaw("Horizontal");
+        if (moveHorizontal != 0f)
         {
-            GetComponent<SpriteRenderer>().flipX = false;
-        }
-        else if (Input.GetAxisRaw("Horizontal") < 0)
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
+            transform.localScale = new Vector3(xScale * moveHorizontal,
+                                               transform.localScale.y,
+                                               transform.localScale.z);
         }
     }
 }
