@@ -1,24 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
     [HideInInspector]
-    public float moveHorizontal, moveVertical, jump;
+    public float moveHorizontal, moveVertical, jump, xScale;
     [SerializeField]
     public float movementSpeed = 2.0f;
     [SerializeField]
-    public float jumpForce = 10f;
-
+    public float jumpForce = 10f;    
     private Rigidbody2D rb;
-
+    private Animator animator;
     private bool isGrounded;
-    
+
+
+    private void Awake()
+    {
+        xScale = transform.localScale.x;
+        animator = GetComponent<Animator>();
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator.SetBool("Walk", true);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -43,15 +52,33 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            animator.SetBool("Walk", false);
         }
 
-        if (Input.GetAxisRaw("Horizontal") > 0)
+        HandleMovement();
+        
+    }
+
+    private void FixedUpdate()
+    {
+        rb.velocity = new Vector2(moveHorizontal * movementSpeed, rb.velocity.y);
+    }
+
+    private void HandleMovement()
+    {
+        moveHorizontal = Input.GetAxisRaw("Horizontal");
+        if (moveHorizontal != 0f)
         {
-            GetComponent<SpriteRenderer>().flipX = false;
+            transform.localScale = new Vector3(xScale * moveHorizontal,
+                                               transform.localScale.y,
+                                               transform.localScale.z);
+            animator.SetBool("Walk", true);
         }
-        else if (Input.GetAxisRaw("Horizontal") < 0)
+        else
         {
-            GetComponent<SpriteRenderer>().flipX = true;
+            animator.SetBool("Walk", false);
         }
+        
+
     }
 }
