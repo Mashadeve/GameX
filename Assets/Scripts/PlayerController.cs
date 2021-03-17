@@ -10,16 +10,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     public float movementSpeed = 2.0f;
     [SerializeField]
-    public float jumpForce = 10f;
-    [SerializeField] private GameObject player;
+    public float jumpForce = 10f;    
     private Rigidbody2D rb;
-
+    private Animator animator;
     private bool isGrounded;
 
 
     private void Awake()
     {
         xScale = transform.localScale.x;
+        animator = GetComponent<Animator>();
     }
 
 
@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator.SetBool("Walk", true);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -51,10 +52,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            animator.SetBool("Walk", false);
         }
 
         HandleMovement();
-
+        
     }
 
     private void FixedUpdate()
@@ -70,6 +72,13 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(xScale * moveHorizontal,
                                                transform.localScale.y,
                                                transform.localScale.z);
+            animator.SetBool("Walk", true);
         }
+        else
+        {
+            animator.SetBool("Walk", false);
+        }
+        
+
     }
 }
