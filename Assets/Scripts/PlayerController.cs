@@ -5,15 +5,13 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-    [HideInInspector]
-    public float moveHorizontal, moveVertical, jump, xScale;
+    private float moveHorizontal, moveVertical, jump, xScale;
     [SerializeField]
-    public float movementSpeed = 2.0f;
-    [SerializeField]
-    public float jumpForce = 10f;    
+    public float movementSpeed = 2.0f, jumpForce = 10f;
     private Rigidbody2D rb;
     private Animator animator;
     private bool isGrounded;
+    public bool playerAlive;
 
 
     private void Awake()
@@ -22,12 +20,11 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator.SetBool("Walk", true);
+        playerAlive = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -35,15 +32,16 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.CompareTag("Ground"))
         {
             isGrounded = true;
+            
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         isGrounded = false;
+        Debug.Log("ei osu" + collision);
     }
 
-    // Update is called once per frame
     void Update()
     {
         moveHorizontal = Input.GetAxis("Horizontal");
@@ -52,11 +50,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            animator.SetBool("Walk", false);
+            
         }
 
         HandleMovement();
         
+
+
     }
 
     private void FixedUpdate()
@@ -79,6 +79,6 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Walk", false);
         }
         
-
     }
+
 }
