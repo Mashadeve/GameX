@@ -894,7 +894,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &454458968
 Transform:
   m_ObjectHideFlags: 0
@@ -948,7 +948,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1181099575
   m_SortingLayer: 8
-  m_SortingOrder: 6
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: 307c9f1ec631e3246ba0c106a68c9ccf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1462,7 +1462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &832693842
 Transform:
   m_ObjectHideFlags: 0
@@ -1692,6 +1692,10 @@ PrefabInstance:
     - target: {fileID: -2811481262412387076, guid: 64fa943441db16d439c7006b82d69aaf, type: 3}
       propertyPath: m_SortingLayer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -2811481262412387076, guid: 64fa943441db16d439c7006b82d69aaf, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -2811481262412387076, guid: 64fa943441db16d439c7006b82d69aaf, type: 3}
       propertyPath: m_SortingLayerID
@@ -2097,7 +2101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1096753680
 Transform:
   m_ObjectHideFlags: 0
