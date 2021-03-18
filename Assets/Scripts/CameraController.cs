@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     private Camera playerCamera;
-    [SerializeField] private GameObject player;
+    [SerializeField] private PlayerController player;
     [SerializeField] private float offSet;
 
     void Start()
@@ -15,7 +15,11 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        playerCamera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + offSet, -15f);
+        if (player.playerAlive)
+        {
+            playerCamera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y + offSet, -15f);
+        }
+        
         
     }
 }
