@@ -17,4 +17,9 @@ public class UIManager : MonoBehaviour
     {
         
     }
+
+    public void NextScene()
+    {
+        SceneManager.LoadScene("Level_1");
+    }
 }
