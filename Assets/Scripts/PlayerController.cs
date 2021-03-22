@@ -47,8 +47,8 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject == GameObject.FindGameObjectWithTag("Kolpakko"))
         {
-            drunkScript.gotMoreBeer = true;
             Destroy(GameObject.Find("Kolpakko"));
+            drunkScript.gotMoreBeer = true;
         }
     }
 

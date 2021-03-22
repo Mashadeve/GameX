@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DrunkScript : MonoBehaviour
 {
     [SerializeField] Image pointer;
-    private int end1, end2, currentPoints;
+    private int end1, end2, currentPoints, beerPoints;
     [HideInInspector] public bool gotMoreBeer;
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class DrunkScript : MonoBehaviour
     {
         if (gotMoreBeer)
         {
-
+            MoreDrunk(beerPoints);
         }
         
     }
