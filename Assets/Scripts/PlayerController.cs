@@ -58,14 +58,23 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        moveHorizontal = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveHorizontal * movementSpeed, rb.velocity.y);
-
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
+        
+        if (playerAlive)
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            
+            moveHorizontal = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector2(moveHorizontal * movementSpeed, rb.velocity.y);
+
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
+            {
+                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha0))
+            {
+                drunkScript.MoreDrunk(5);
+            }
         }
+
         HandleMovement();
         
     }
