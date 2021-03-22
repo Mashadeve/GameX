@@ -5,7 +5,8 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-    private DrunkScript drunkScript;
+    [SerializeField] DrunkScript drunkScript;
+    [SerializeField] private GameObject kolpakkoPrefab;
     private float moveHorizontal, moveVertical, jump, xScale;
     [SerializeField]
     public float movementSpeed = 2.0f, jumpForce = 10f;
@@ -22,7 +23,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void Start()
-    {
+    { 
         rb = GetComponent<Rigidbody2D>();
         animator.SetBool("Walk", true);
         playerAlive = true;
@@ -43,12 +44,13 @@ public class PlayerController : MonoBehaviour
         Debug.Log("ei osu" + collision);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject == GameObject.FindGameObjectWithTag("Kolpakko"))
+        if(collision.gameObject == kolpakkoPrefab)
         {
-            Destroy(GameObject.Find("Kolpakko"));
             drunkScript.gotMoreBeer = true;
+            Destroy(kolpakkoPrefab);
+            
         }
     }
 
