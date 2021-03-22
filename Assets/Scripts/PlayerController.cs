@@ -58,10 +58,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            drunkScript.MoreDrunk(10);
-        }
 
         moveHorizontal = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveHorizontal * movementSpeed, rb.velocity.y);
