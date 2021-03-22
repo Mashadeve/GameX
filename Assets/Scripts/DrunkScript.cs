@@ -7,7 +7,7 @@ public class DrunkScript : MonoBehaviour
 {
     [SerializeField] Image pointer;
     private int end1, end2, currentPoints, beerPoints;
-    [HideInInspector] public bool gotMoreBeer;
+    public bool gotMoreBeer;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +21,12 @@ public class DrunkScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(gotMoreBeer);
+        
+
         if (gotMoreBeer)
         {
+            Debug.Log(gotMoreBeer);
             MoreDrunk(beerPoints);
         }
         
@@ -30,9 +34,12 @@ public class DrunkScript : MonoBehaviour
 
     private void MoreDrunk(int beerPoints)
     {
-        beerPoints = 100;
+        beerPoints = 10;
+        pointer.GetComponent<RectTransform>().transform.position = new Vector2(pointer.GetComponent<RectTransform>().transform.position.x +
+        pointer.GetComponent<RectTransform>().rect.width * beerPoints, pointer.GetComponent<RectTransform>().transform.position.y);
         currentPoints += beerPoints;
         gotMoreBeer = false;
+        Debug.Log(gotMoreBeer);
     }
 
     private IEnumerator Timer()
