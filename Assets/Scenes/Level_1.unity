@@ -1016,8 +1016,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -7.984068, y: 7.504329}
-  - {x: 7.9840746, y: 7.504326}
+  - {x: -112.0454, y: 6.8478456}
+  - {x: 111.75452, y: 6.3240957}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -2184,9 +2184,10 @@ GameObject:
   m_Component:
   - component: {fileID: 938158534}
   - component: {fileID: 938158533}
+  - component: {fileID: 938158535}
   m_Layer: 0
   m_Name: GroundDown
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2256,6 +2257,29 @@ Transform:
   m_Father: {fileID: 1286095658}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &938158535
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938158532}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -7.8953094, y: 7.5856934}
+  - {x: -7.2882614, y: 7.572361}
+  - {x: 7.81332, y: -7.5578117}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &982144880
 GameObject:
   m_ObjectHideFlags: 0
