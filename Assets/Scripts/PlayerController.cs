@@ -5,6 +5,7 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
+    private DrunkScript drunkScript;
     private float moveHorizontal, moveVertical, jump, xScale;
     [SerializeField]
     public float movementSpeed = 2.0f, jumpForce = 10f;
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject == GameObject.FindGameObjectWithTag("Kolpakko"))
         {
+            drunkScript.gotMoreBeer = true;
             Destroy(GameObject.Find("Kolpakko"));
         }
     }

@@ -7,6 +7,7 @@ public class DrunkScript : MonoBehaviour
 {
     [SerializeField] Image pointer;
     private int end1, end2, currentPoints;
+    [HideInInspector] public bool gotMoreBeer;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,18 @@ public class DrunkScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gotMoreBeer)
+        {
+
+        }
         
+    }
+
+    private void MoreDrunk(int beerPoints)
+    {
+        beerPoints = 100;
+        currentPoints += beerPoints;
+        gotMoreBeer = false;
     }
 
     private IEnumerator Timer()
