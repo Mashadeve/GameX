@@ -42,6 +42,16 @@ public class PlayerController : MonoBehaviour
         Debug.Log("ei osu" + collision);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject == GameObject.FindGameObjectWithTag("Kolpakko"))
+        {
+            Destroy(GameObject.Find("Kolpakko"));
+        }
+    }
+
+
+
     void Update()
     {
         moveHorizontal = Input.GetAxis("Horizontal");
@@ -52,12 +62,10 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             
         }
-
         HandleMovement();
         
-
-
     }
+    
 
     private void FixedUpdate()
     {
@@ -81,4 +89,5 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    
 }
