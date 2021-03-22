@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class DrunkScript : MonoBehaviour
 {
     [SerializeField] Image pointer;
-    private int end1, end2, currentPoints, beerPoints;
+    public int end1, end2, currentPoints, beerPoints;
     public bool gotMoreBeer;
     // Start is called before the first frame update
     void Start()
     {
-        end1 = -240;
-        end2 = 240;
+        end1 = -247;
+        end2 = 247;
 
         StartCoroutine(Timer());
         
@@ -32,7 +32,7 @@ public class DrunkScript : MonoBehaviour
         
     }
 
-    private void MoreDrunk(int beerPoints)
+    public void MoreDrunk(int beerPoints)
     {
         beerPoints = 10;
         pointer.GetComponent<RectTransform>().transform.position = new Vector2(pointer.GetComponent<RectTransform>().transform.position.x +
