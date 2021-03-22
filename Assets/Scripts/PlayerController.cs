@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     private bool isGrounded;
-    public bool playerAlive;
+    public bool playerAlive;   
 
 
     private void Awake()
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void Start()
-    {
+    {       
         rb = GetComponent<Rigidbody2D>();
         animator.SetBool("Walk", true);
         playerAlive = true;
@@ -42,8 +43,11 @@ public class PlayerController : MonoBehaviour
         Debug.Log("ei osu" + collision);
     }
 
-    void Update()
+    private void Update()
     {
+                 
+        
+
         moveHorizontal = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveHorizontal * movementSpeed, rb.velocity.y);
 
@@ -55,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
         HandleMovement();
         
-
+        
 
     }
 
