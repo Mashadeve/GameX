@@ -28,10 +28,12 @@ public class DrunkScript : MonoBehaviour
         currentPoints = 0;
         while (true)
         {
+            Debug.Log(pointer.GetComponent<RectTransform>().rect.width);
             Debug.Log(currentPoints);
             yield return new WaitForSeconds(2f);
             currentPoints -= 5;
-            pointer.GetComponent<RectTransform>().transform.position = new Vector2(pointer.GetComponent<RectTransform>().transform.position.x - pointer.gameObject.GetComponent<RectTransform>().rect.width, pointer.GetComponent<RectTransform>().transform.position.y);
+            pointer.GetComponent<RectTransform>().transform.position = new Vector2(pointer.GetComponent<RectTransform>().transform.position.x -
+            pointer.GetComponent<RectTransform>().rect.width, pointer.GetComponent<RectTransform>().transform.position.y);
 
 
             if (currentPoints < end1)
