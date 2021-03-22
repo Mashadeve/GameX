@@ -41,15 +41,14 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         isGrounded = false;
-        Debug.Log("ei osu" + collision);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject == kolpakkoPrefab)
+        if(collision.gameObject == GameObject.FindGameObjectWithTag("Kolpakko"))
         {
-            drunkScript.gotMoreBeer = true;
-            Destroy(kolpakkoPrefab);
+            drunkScript.MoreDrunk(10);
+            Destroy(GameObject.FindGameObjectWithTag("Kolpakko"));
             
         }
     }
