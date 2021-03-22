@@ -58,8 +58,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
-        
         if (playerAlive)
         {
             moveHorizontal = Input.GetAxis("Horizontal");
@@ -75,15 +73,12 @@ public class PlayerController : MonoBehaviour
                 drunkScript.MoreDrunk(5);
             }
         }
-
-        HandleMovement();
-        
     }
     
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(moveHorizontal * movementSpeed, rb.velocity.y);
+        HandleMovement();
     }
 
     private void HandleMovement()
@@ -100,8 +95,5 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("Walk", false);
         }
-        
-    }
-
-    
+    } 
 }
