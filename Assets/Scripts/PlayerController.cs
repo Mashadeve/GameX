@@ -18,12 +18,13 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        
         xScale = transform.localScale.x;
         animator = GetComponent<Animator>();
     }
 
     void Start()
-    { 
+    {
         rb = GetComponent<Rigidbody2D>();
         animator.SetBool("Walk", true);
         playerAlive = true;
