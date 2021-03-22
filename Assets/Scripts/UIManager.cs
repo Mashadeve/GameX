@@ -6,20 +6,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public SceneManager sceneManager;
-    void Start()
+    public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    
-    void Update()
-    {
-        
-    }
-
-    public void NextScene()
-    {
-        SceneManager.LoadScene("Level_1");
     }
 }
