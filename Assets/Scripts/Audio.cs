@@ -9,7 +9,8 @@ public class Audio : MonoBehaviour
     void Start()
     {
         rumpu = GetComponent<AudioSource>();
-        rumpu.volume = 0.2f;
+        rumpu.volume = 0.1f;
+        rumpu.PlayDelayed(5f);
         
     }
 
