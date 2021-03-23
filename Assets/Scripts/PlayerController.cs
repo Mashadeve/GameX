@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     private float moveHorizontal, moveVertical, jump, xScale;
     [SerializeField]
     public float movementSpeed = 2.0f, jumpForce = 10f;
-    [SerializeField] private GameObject player;
     private Rigidbody2D rb;
     private Animator animator;
     private bool isGrounded;
@@ -22,7 +21,6 @@ public class PlayerController : MonoBehaviour
         
         xScale = transform.localScale.x;
         animator = GetComponent<Animator>();
-        
     }
 
     void Start()
@@ -31,8 +29,6 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Walk", true);
         playerAlive = true;
     }
-
-    
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -77,9 +73,6 @@ public class PlayerController : MonoBehaviour
                 drunkScript.MoreDrunk(5);
             }
         }
-
-
-
     }
     
 
