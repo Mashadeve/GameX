@@ -7,11 +7,13 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] DrunkScript drunkScript;
     [SerializeField] private GameObject[] kolpakkoPrefab;
-    private float moveHorizontal, moveVertical, jump, xScale;
-    [SerializeField]
-    public float movementSpeed = 2.0f, jumpForce = 10f;
+    [SerializeField] public float movementSpeed = 2.0f, jumpForce = 10f;
+
     private Rigidbody2D rb;
     private Animator animator;
+
+    private float moveHorizontal, moveVertical, jump, xScale;
+
     private bool isGrounded;
     public bool playerAlive;
 
