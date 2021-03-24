@@ -5,6 +5,7 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] Collider2D keppi;
     [SerializeField] DrunkScript drunkScript;
     [SerializeField] private GameObject[] kolpakkoPrefab;
     [SerializeField] public float movementSpeed = 2.0f, jumpForce = 10f;
@@ -27,6 +28,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        keppi = GameObject.Find("Keppi").GetComponent<BoxCollider2D>();
+        keppi.enabled = false;
         rb = GetComponent<Rigidbody2D>();
         animator.SetBool("Walk", true);
         playerAlive = true;
@@ -37,18 +40,19 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.CompareTag("Ground"))
         {
             isGrounded = true;
-            
+            keppi.enabled = false;
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
         isGrounded = false;
+        keppi.enabled = true;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject == GameObject.FindGameObjectWithTag("Kolpakko"))
+        if (collision.gameObject.CompareTag("Kolpakko"))
         {
             drunkScript.MoreDrunk(10);
             Destroy(GameObject.FindGameObjectWithTag("Kolpakko"));
@@ -60,13 +64,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (playerAlive)
+        if (playerAlive && isGrounded == true || keppi == true)
         {
             moveHorizontal = Input.GetAxis("Horizontal");
             rb.velocity = new Vector2(moveHorizontal * movementSpeed, rb.velocity.y);
 
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
+                
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
 
@@ -75,6 +80,13 @@ public class PlayerController : MonoBehaviour
                 drunkScript.MoreDrunk(5);
             }
         }
+        Debug.Log(keppi.enabled);
+        Invoke("JumpFalse", 1f);
+    }
+    private bool JumpFalse()
+    {
+
+        return keppi.enabled = false;
     }
     
 
