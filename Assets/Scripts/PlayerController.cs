@@ -9,15 +9,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] DrunkScript drunkScript;
     [SerializeField] private GameObject[] kolpakkoPrefab;
     [SerializeField] public float movementSpeed = 2.0f, jumpForce = 10f;
+    public bool playerAlive;
 
     private Rigidbody2D rb;
     private Animator animator;
 
-    private float moveHorizontal, moveVertical, jump, xScale;
+    private float moveHorizontal, moveVertical, jump, xScale, jumpForceMultiplier = 2;
 
-    private bool isGrounded;
-    public bool playerAlive;
+    private bool isGrounded, canJump, jumpKeyPressed;
 
+   
+    
 
     private void Awake()
     {
@@ -33,6 +35,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator.SetBool("Walk", true);
         playerAlive = true;
+        canJump = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -40,14 +43,16 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.CompareTag("Ground"))
         {
             isGrounded = true;
-            keppi.enabled = false;
+            if (isGrounded)
+            {
+                canJump = true;
+            }
         }
     }
-
     private void OnCollisionExit2D(Collision2D collision)
     {
         isGrounded = false;
-        keppi.enabled = true;
+
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -64,39 +69,43 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (playerAlive && isGrounded == true || keppi == true)
+        Debug.Log(isGrounded);
+        Debug.Log("Voi hyppää " + canJump);
+        if (Input.GetKeyDown(KeyCode.Alpha0))
         {
-            moveHorizontal = Input.GetAxis("Horizontal");
-            rb.velocity = new Vector2(moveHorizontal * movementSpeed, rb.velocity.y);
+            drunkScript.MoreDrunk(5);
+        } 
+    }
 
+  
+    private void Jumping()
+    {
+        if (playerAlive && canJump)
+        {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                
-                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            }
+                jumpKeyPressed = true;
+                if (jumpKeyPressed)
+                {
+                    rb.AddForce(Vector2.up * jumpForce * jumpForceMultiplier * Time.unscaledDeltaTime, ForceMode2D.Impulse);
+                    canJump = false;
+                }
 
-            if (Input.GetKeyDown(KeyCode.Alpha0))
-            {
-                drunkScript.MoreDrunk(5);
             }
+            
         }
-        Debug.Log(keppi.enabled);
-        Invoke("JumpFalse", 1f);
-    }
-    private bool JumpFalse()
-    {
-
-        return keppi.enabled = false;
     }
     
 
     private void FixedUpdate()
     {
+        Jumping();
         HandleMovement();
     }
 
     private void HandleMovement()
     {
+        rb.velocity = new Vector2(moveHorizontal * movementSpeed, rb.velocity.y);
         moveHorizontal = Input.GetAxisRaw("Horizontal");
         if (moveHorizontal != 0f)
         {
