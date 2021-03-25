@@ -5,9 +5,9 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] GameObject kolpakkoPrefab;
     [SerializeField] Collider2D keppi;
     [SerializeField] DrunkScript drunkScript;
+    [SerializeField] private GameObject[] kolpakkoPrefab;
     [SerializeField] public float movementSpeed = 2.0f, jumpForce;
     public bool playerAlive, canJump;
 
@@ -47,7 +47,8 @@ public class PlayerController : MonoBehaviour
             {
                 canJump = true;
             }
-        }
+        }        
+
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -57,15 +58,20 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       drunkScript.MoreDrunk(10);
-       DestroyPrefab();
+        drunkScript.MoreDrunk(10);
+        DestroyPrefab();
     }
 
-
+    private void DestroyPrefab()
+    {
+        Destroy(GameObject.FindGameObjectWithTag("Kolpakko"));
+    }
 
     void Update()
     {
         Jumping();
+        Debug.Log(isGrounded);
+        Debug.Log("Voi hyppää " + canJump);
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             drunkScript.MoreDrunk(5);
@@ -113,10 +119,5 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("Walk", false);
         }
-    }
-    
-    private void DestroyPrefab()
-    {
-        Destroy(GameObject.FindGameObjectWithTag("Kolpakko"), 0.5f);
-    }
+    } 
 }
