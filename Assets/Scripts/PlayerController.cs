@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject[] kolpakkoPrefab;
     [SerializeField] public float movementSpeed = 2.0f, jumpForce;
     public bool playerAlive, canJump;
+    public bool canMove;
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -27,16 +28,22 @@ public class PlayerController : MonoBehaviour
         
         xScale = transform.localScale.x;
         animator = GetComponent<Animator>();
+        
     }
 
     void Start()
     {
+        Debug.Log("liikkuminen on" + canMove);
         keppi = GameObject.Find("Keppi").GetComponent<BoxCollider2D>();
         keppi.enabled = false;
         rb = GetComponent<Rigidbody2D>();
         animator.SetBool("Walk", true);
         playerAlive = true;
         canJump = true;
+        canMove = false;
+        StartCoroutine(startDelay());
+        
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -78,13 +85,21 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             drunkScript.MoreDrunk(5);
-        } 
+        }
+
     }
 
-  
+    IEnumerator startDelay()
+    {
+        
+        yield return new WaitForSeconds(3f);
+        canMove = true;
+        
+    }
+
     private void Jumping()
     {
-        if (playerAlive && canJump)
+        if (playerAlive && canJump && canMove)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -109,10 +124,12 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
-        rb.velocity = new Vector2(moveHorizontal * movementSpeed, rb.velocity.y);
+        
         moveHorizontal = Input.GetAxisRaw("Horizontal");
-        if (moveHorizontal != 0f)
+        if (moveHorizontal != 0f && canMove)
         {
+            rb.velocity = new Vector2(moveHorizontal * movementSpeed, rb.velocity.y);
+
             transform.localScale = new Vector3(xScale * moveHorizontal,
                                                transform.localScale.y,
                                                transform.localScale.z);
