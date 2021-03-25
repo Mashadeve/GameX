@@ -5433,6 +5433,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &894531984 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5639961999393145252, guid: 1042c0fc8cbc66b4b9be918d976ddb4d, type: 3}
+  m_PrefabInstance: {fileID: 619942972}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &904863406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6177,6 +6182,11 @@ Transform:
   m_Father: {fileID: 1971030701}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1004287953 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5639961999393145252, guid: 1042c0fc8cbc66b4b9be918d976ddb4d, type: 3}
+  m_PrefabInstance: {fileID: 52124385}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1014704850
 GameObject:
   m_ObjectHideFlags: 0
@@ -9324,7 +9334,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keppi: {fileID: 1457424036}
   drunkScript: {fileID: 490387779}
-  kolpakkoPrefab: {fileID: 293142609}
+  kolpakkoPrefab:
+  - {fileID: 293142609}
+  - {fileID: 894531984}
+  - {fileID: 1004287953}
   movementSpeed: 10
   jumpForce: 15
   playerAlive: 0
