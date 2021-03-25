@@ -47,7 +47,8 @@ public class PlayerController : MonoBehaviour
             {
                 canJump = true;
             }
-        }
+        }        
+
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -55,17 +56,16 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Kolpakko"))
-        {
-            drunkScript.MoreDrunk(10);
-            Destroy(GameObject.FindGameObjectWithTag("Kolpakko"));
-            
-        }
+        drunkScript.MoreDrunk(10);
+        DestroyPrefab();
     }
 
-
+    private void DestroyPrefab()
+    {
+        Destroy(GameObject.FindGameObjectWithTag("Kolpakko"));
+    }
 
     void Update()
     {
