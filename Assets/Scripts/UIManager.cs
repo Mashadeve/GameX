@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField] private GameObject playerHealth;
     [SerializeField] private GameObject pausePanel;
     public static UIManager instance;
 
@@ -15,7 +16,10 @@ public class UIManager : MonoBehaviour
         {
             instance = this;
         }
+
     }
+
+
     public void OnPause()
     {
         pausePanel.SetActive(!pausePanel.activeSelf);
@@ -33,5 +37,13 @@ public class UIManager : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void TakeDamage()
+    {
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            playerHealth.GetComponent<Slider>().maxValue -= 10;
+        }
     }
 }
