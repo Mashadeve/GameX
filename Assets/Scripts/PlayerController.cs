@@ -8,15 +8,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Collider2D keppi;
     [SerializeField] DrunkScript drunkScript;
     [SerializeField] private GameObject[] kolpakkoPrefab;
-    [SerializeField] public float movementSpeed = 2.0f, jumpForce = 10f;
-    public bool playerAlive;
+    [SerializeField] public float movementSpeed = 2.0f, jumpForce;
+    public bool playerAlive, canJump;
 
     private Rigidbody2D rb;
     private Animator animator;
 
     private float moveHorizontal, moveVertical, jump, xScale, jumpForceMultiplier = 2;
 
-    private bool isGrounded, canJump, jumpKeyPressed;
+    private bool isGrounded, jumpKeyPressed;
 
    
     
@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        Jumping();
         Debug.Log(isGrounded);
         Debug.Log("Voi hyppää " + canJump);
         if (Input.GetKeyDown(KeyCode.Alpha0))
@@ -87,7 +88,7 @@ public class PlayerController : MonoBehaviour
                 jumpKeyPressed = true;
                 if (jumpKeyPressed)
                 {
-                    rb.AddForce(Vector2.up * jumpForce * jumpForceMultiplier * Time.unscaledDeltaTime, ForceMode2D.Impulse);
+                    rb.AddForce(Vector2.up * jumpForce * jumpForceMultiplier, ForceMode2D.Impulse);
                     canJump = false;
                 }
 
@@ -99,7 +100,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Jumping();
+        
         HandleMovement();
     }
 
