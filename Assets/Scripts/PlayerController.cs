@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] Collider2D keppi;
     [SerializeField] DrunkScript drunkScript;
-    [SerializeField] private GameObject[] kolpakkoPrefab;
+    [SerializeField] private GameObject kolpakkoPrefab;
     [SerializeField] public float movementSpeed = 2.0f, jumpForce;
     public bool playerAlive, canJump;
 
@@ -57,12 +57,12 @@ public class PlayerController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Kolpakko"))
+        if (collision.gameObject == GameObject.FindGameObjectWithTag("Kolpakko"))
         {
             drunkScript.MoreDrunk(10);
-            Destroy(GameObject.FindGameObjectWithTag("Kolpakko"));
-            
+            Destroy(kolpakkoPrefab);
         }
+        
     }
 
 
@@ -70,8 +70,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Jumping();
-        Debug.Log(isGrounded);
-        Debug.Log("Voi hyppää " + canJump);
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             drunkScript.MoreDrunk(5);
