@@ -42,4 +42,6 @@ public class CameraController : MonoBehaviour
             playerCamera.transform.position = new Vector3(worldEnd.position.x, playerCamera.transform.position.y, playerCamera.transform.position.z);
         }
     }
+
+    
 }
