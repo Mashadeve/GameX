@@ -5,28 +5,36 @@ using UnityEngine;
 public class BeerSpawnManager : MonoBehaviour
 {
     public GameObject myPrefab;
-    private int beerCount;
-    [SerializeField] Vector3 Pos1, Pos2;
+    public int beerCount;
+    private Vector3 Pos1, Pos2, Pos3;
+    public bool canSpawn = true;
 
     private void Start()
     {
         //Instantiate(myPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         Pos1 = new Vector3(17, 0.5f, 0);
         Pos2 = new Vector3(65, -3, 0);
+        Pos3 = new Vector3(100, -3, 0);
     }
 
     private void FixedUpdate()
     {
-        if (beerCount == 0)
+        Debug.Log("Beer count: " + beerCount);
+        if (beerCount == 0 && canSpawn == true)
         {
             CloneBeer(Pos1);
-            beerCount += 1;           
-        }    
-        
-        if (beerCount == 1)
+            canSpawn = false;
+  
+        }
+        if (beerCount == 1 && canSpawn == true)
         {
             CloneBeer(Pos2);
-            beerCount += 1;
+            canSpawn = false;
+        }
+        if (beerCount == 2 && canSpawn == true)
+        {
+            CloneBeer(Pos3);
+            canSpawn = false;
         }
     }
 

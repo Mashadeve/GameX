@@ -5,6 +5,7 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] BeerSpawnManager beerManager;
     [SerializeField] Collider2D keppi;
     [SerializeField] DrunkScript drunkScript;
     [SerializeField] private GameObject[] kolpakkoPrefab;
@@ -56,10 +57,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
+        beerManager.canSpawn = true;
+        beerManager.beerCount += 1;
         drunkScript.MoreDrunk(10);
         DestroyPrefab();
+        
     }
 
     private void DestroyPrefab()
@@ -69,9 +73,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        
         Jumping();
-        Debug.Log(isGrounded);
-        Debug.Log("Voi hyppää " + canJump);
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             drunkScript.MoreDrunk(5);
