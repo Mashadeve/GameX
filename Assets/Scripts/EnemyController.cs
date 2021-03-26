@@ -20,6 +20,10 @@ public class EnemyController : MonoBehaviour
     private void FixedUpdate()
     {
         wolf.transform.position = new Vector2(wolf.transform.position.x - 0.1f, wolf.transform.position.y);
+        if (wolf.transform.position.x <= end.position.x)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
 }
