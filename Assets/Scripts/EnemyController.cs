@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject wolf;
+    [SerializeField] private Transform start, end;
+
+
+    private void Start()
     {
-        
+        wolf.transform.position = GameObject.Find("Wolf_anim").GetComponent<Transform>().position;
+        wolf.transform.position = new Vector2(start.position.x, start.position.y - 2.1f);
+    }
+    private void Update()
+    {
+
+    }
+    private void FixedUpdate()
+    {
+        wolf.transform.position = new Vector2(wolf.transform.position.x - 0.1f, wolf.transform.position.y);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

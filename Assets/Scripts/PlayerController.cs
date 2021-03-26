@@ -66,11 +66,19 @@ public class PlayerController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        beerManager.canSpawn = true;
-        beerManager.beerCount += 1;
-        drunkScript.MoreDrunk(10);
-        DestroyPrefab();
-        
+        if (collision.gameObject.tag == "Kolpakko")
+        {
+            beerManager.canSpawn = true;
+            beerManager.beerCount += 1;
+            drunkScript.MoreDrunk(10);
+            DestroyPrefab();
+        }
+        else
+        {
+            drunkScript.MoreDrunk(-14);
+        }
+
+
     }
 
     private void DestroyPrefab()
