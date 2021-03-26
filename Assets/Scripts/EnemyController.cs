@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] GameObject wolf;
+    [SerializeField] private GameObject wolf;
+    [SerializeField] private Transform start,end;
 
-    private float moveSpeed;
 
     private void Start()
     {
-        
+        wolf.transform.position = GameObject.Find("Wolf_1").GetComponent<Transform>().position;
+        wolf.transform.position = new Vector2(start.position.x, start.position.y - 1.5f);
     }
-
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            wolf.transform.position = new Vector2(wolf.transform.position.x * moveSpeed, wolf.transform.position.y);
-        }
+        
     }
+    private void FixedUpdate()
+    {
+        wolf.transform.position = new Vector2(wolf.transform.position.x - 0.1f, wolf.transform.position.y);
+    }
+
 }

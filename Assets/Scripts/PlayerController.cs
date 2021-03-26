@@ -64,12 +64,20 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D Bisse)
     {
-        beerManager.canSpawn = true;
-        beerManager.beerCount += 1;
-        drunkScript.MoreDrunk(10);
-        DestroyPrefab();
+        if (Bisse.gameObject.tag == "Kolpakko")
+        {
+            beerManager.canSpawn = true;
+            beerManager.beerCount += 1;
+            drunkScript.MoreDrunk(10);
+            DestroyPrefab();
+        }
+        else
+        {
+            drunkScript.MoreDrunk(-14);
+        }
+
         
     }
 
