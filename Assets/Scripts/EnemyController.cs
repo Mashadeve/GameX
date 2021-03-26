@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameObject wolf;
+
+    private float moveSpeed;
+
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            wolf.transform.position = new Vector2(wolf.transform.position.x * moveSpeed, wolf.transform.position.y);
+        }
     }
 }
