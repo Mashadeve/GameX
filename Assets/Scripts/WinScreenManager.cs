@@ -15,4 +15,6 @@ public class WinScreenManager : MonoBehaviour
             Debug.Log(collision + "osuu");
         }
     }
+
+
 }
