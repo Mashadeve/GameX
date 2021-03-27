@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5639961999393145254}
   - component: {fileID: 5639961999393145253}
   - component: {fileID: 8669427962249577921}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Kolpakko
   m_TagString: Kolpakko
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 5639962000829073318}
   - component: {fileID: 5639962000829073317}
   - component: {fileID: 5639962000829073316}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Kuohunta
   m_TagString: Untagged
   m_Icon: {fileID: 0}

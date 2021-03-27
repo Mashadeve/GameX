@@ -877,7 +877,7 @@ GameObject:
   m_Component:
   - component: {fileID: 82439771}
   - component: {fileID: 82439772}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: miekka(viikinki)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10955,10 +10955,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d7368abde9501f469883da27d52a13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 5491324175122388486, guid: c6e67a190992dd44498cdee4e2b606e8, type: 3}
   beerManager: {fileID: 508426335}
   keppi: {fileID: 1457424036}
   drunkScript: {fileID: 490387779}
-  kolpakkoPrefab: []
+  kolpakkoPrefab: {fileID: 0}
   movementSpeed: 10
   jumpForce: 18
   playerAlive: 0

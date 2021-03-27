@@ -6,10 +6,10 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private GameObject enemy;
     [SerializeField] BeerSpawnManager beerManager;
     [SerializeField] Collider2D keppi;
     [SerializeField] DrunkScript drunkScript;
-    [SerializeField] private GameObject[] kolpakkoPrefab;
     [SerializeField] public float movementSpeed = 2.0f, jumpForce;
     public bool playerAlive, canJump;
     public bool canMove;
@@ -73,12 +73,10 @@ public class PlayerController : MonoBehaviour
             drunkScript.MoreDrunk(10);
             DestroyPrefab();
         }
-        else
+        if (collision.gameObject.layer == 0)
         {
             drunkScript.MoreDrunk(-14);
-          
         }
-
 
     }
 
