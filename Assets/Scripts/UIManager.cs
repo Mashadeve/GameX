@@ -21,6 +21,12 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+        Debug.Log("Game quittig");
+    }
+
     public void TakeDamage()
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
