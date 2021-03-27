@@ -31,16 +31,20 @@ public class CameraController : MonoBehaviour
 
     private void CameraHandler()
     {
-        playerCamera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
+        if (player.playerAlive)
+        {
+            playerCamera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, -10);
 
-        if (playerCamera.transform.position.x <= worldStart.position.x)
-        {
-            playerCamera.transform.position = new Vector3(worldStart.position.x, playerCamera.transform.position.y, playerCamera.transform.position.z);
+            if (playerCamera.transform.position.x <= worldStart.position.x)
+            {
+                playerCamera.transform.position = new Vector3(worldStart.position.x, playerCamera.transform.position.y, playerCamera.transform.position.z);
+            }
+            else if (playerCamera.transform.position.x >= worldEnd.position.x)
+            {
+                playerCamera.transform.position = new Vector3(worldEnd.position.x, playerCamera.transform.position.y, playerCamera.transform.position.z);
+            }
         }
-        else if (playerCamera.transform.position.x >= worldEnd.position.x)
-        {
-            playerCamera.transform.position = new Vector3(worldEnd.position.x, playerCamera.transform.position.y, playerCamera.transform.position.z);
-        }
+
     }
 
     

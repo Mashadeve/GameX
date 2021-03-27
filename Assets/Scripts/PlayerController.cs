@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Kolpakko")
+        if (collision.gameObject.layer == 19)
         {
             beerManager.canSpawn = true;
             beerManager.beerCount += 1;

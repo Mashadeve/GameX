@@ -10959,7 +10959,6 @@ MonoBehaviour:
   beerManager: {fileID: 508426335}
   keppi: {fileID: 1457424036}
   drunkScript: {fileID: 490387779}
-  kolpakkoPrefab: {fileID: 0}
   movementSpeed: 10
   jumpForce: 18
   playerAlive: 0
@@ -11247,6 +11246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80b80e98b92717d4c86289b5614c4e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1626724314}
   followTarget: {fileID: 1626724311}
 --- !u!1 &1825193483
 GameObject:
