@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Kolpakko
+  - FinishPoint
   layers:
   - Default
   - TransparentFX
