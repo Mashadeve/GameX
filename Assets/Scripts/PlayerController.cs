@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -75,7 +76,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             drunkScript.MoreDrunk(-14);
-            
+          
         }
 
 
@@ -88,7 +89,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        
+        Block();
+        Attack();
+
         Jumping();
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
@@ -147,5 +150,24 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("Walk", false);
         }
-    } 
+    }
+    
+    private void Attack()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            animator.SetTrigger("Attack");
+        }
+    }
+    private void Block()
+    {
+        if (Input.GetMouseButton(1))
+        {
+            animator.SetBool("Block", true);
+        }
+        else
+        {
+            animator.SetBool("Block", false);
+        }
+    }
 }

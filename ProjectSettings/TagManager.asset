@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Kolpakko
   - FinishPoint
+  - Enemy
   layers:
   - Default
   - TransparentFX
