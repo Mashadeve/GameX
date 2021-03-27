@@ -13,8 +13,7 @@ public class BeerSpawnManager : MonoBehaviour
 
     private void Start()
     {
-        currentBeerCount = beerCount;
-        beerCountText.text = " X " + currentBeerCount;
+        
 
         Pos1 = new Vector3(17, 0.5f, 0);
         Pos2 = new Vector3(65, -3, 0);
@@ -22,11 +21,10 @@ public class BeerSpawnManager : MonoBehaviour
         Pos4 = new Vector3(200, 2, 0);
         Pos5 = new Vector3(300, 1, 0);
 
-        for (int i = 0; i < beerCount; i++)
-        {
-            currentBeerCount++;
-        }
-
+    }
+    private void Update()
+    {
+        beerCountText.text = beerCount.ToString("0");
     }
 
     private void FixedUpdate()

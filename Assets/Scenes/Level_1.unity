@@ -3723,6 +3723,7 @@ MonoBehaviour:
   beerCountText: {fileID: 684307306}
   myPrefab: {fileID: 5639961999393145252, guid: 1042c0fc8cbc66b4b9be918d976ddb4d, type: 3}
   beerCount: 0
+  currentBeerCount: 0
   canSpawn: 1
 --- !u!4 &508426336
 Transform:
@@ -4829,7 +4830,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
