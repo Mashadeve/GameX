@@ -15,6 +15,7 @@ public class BeerSpawnManager : MonoBehaviour
         Pos1 = new Vector3(17, 0.5f, 0);
         Pos2 = new Vector3(65, -3, 0);
         Pos3 = new Vector3(100, -3, 0);
+
     }
 
     private void FixedUpdate()

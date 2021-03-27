@@ -76,6 +76,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             drunkScript.MoreDrunk(-14);
+            
         }
 
 
