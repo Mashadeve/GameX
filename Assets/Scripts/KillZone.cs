@@ -17,7 +17,6 @@ public class KillZone : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(GameObject.Find("Player"));
-        SceneManager.LoadScene("Level_1");
         player.playerAlive = false;
     }
 
