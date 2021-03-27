@@ -25,8 +25,8 @@ TagManager:
   - Foreground
   - Player
   - Sensor
-  - 
-  - 
+  - SwordHitbox
+  - EnemyHitbox
   - 
   - 
   - 
