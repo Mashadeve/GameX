@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
 
-    private float moveHorizontal, moveVertical, jump, xScale, jumpForceMultiplier = 2;
+    private float moveHorizontal, xScale, jumpForceMultiplier = 2;
 
     private bool isGrounded, jumpKeyPressed;
 
@@ -33,7 +33,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("liikkuminen on" + canMove);
         keppi = GameObject.Find("Keppi").GetComponent<BoxCollider2D>();
         keppi.enabled = false;
         rb = GetComponent<Rigidbody2D>();

@@ -46,14 +46,12 @@ public class DrunkScript : MonoBehaviour
 
             if (currentPoints < end1)
             {
-                Debug.Log("You arent drunk at all");
                 player.playerAlive = false;
                 pointer.GetComponent<RectTransform>().transform.position = _end.transform.position;
                 break;
             }
             if (currentPoints > end2)
             {
-                Debug.Log("You are way too drunk");
                 player.playerAlive = false;
                 pointer.GetComponent<RectTransform>().transform.position = _end2.transform.position;
                 break;
