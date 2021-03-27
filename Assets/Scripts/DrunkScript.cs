@@ -7,6 +7,7 @@ public class DrunkScript : MonoBehaviour
 {
     [SerializeField] PlayerController player;
     [SerializeField] Image pointer;
+    [SerializeField] RectTransform _end, _end2;
     public int end1, end2, currentPoints, beerPoints;
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,7 @@ public class DrunkScript : MonoBehaviour
                 Debug.Log("You arent drunk at all");
                 Time.timeScale = 0f;
                 player.playerAlive = false;
+                pointer.GetComponent<RectTransform>().transform.position = _end.transform.position;
                 break;
             }
             if (currentPoints > end2)
@@ -46,6 +48,7 @@ public class DrunkScript : MonoBehaviour
                 Debug.Log("You are way too drunk");
                 Time.timeScale = 0f;
                 player.playerAlive = false;
+                pointer.GetComponent<RectTransform>().transform.position = _end2.transform.position;
                 break;
             }
         }
