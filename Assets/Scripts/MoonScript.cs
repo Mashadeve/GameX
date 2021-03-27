@@ -8,10 +8,15 @@ public class MoonScript : MonoBehaviour
     private float smoothTime = 0.5f;
     private Vector3 velocity = Vector3.zero;
 
+    private void Start()
+    {
+        
+    }
+
     private void Update()
     {
-        Vector3 targetPosition = followTarget.TransformPoint(new Vector3(followTarget.position.x, 0, 0));
+        Vector3 targetPosition = followTarget.TransformPoint(0, 20, 0);
 
-        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+        transform.position = Vector3.SmoothDamp(new Vector3(gameObject.transform.position.x, 2, 0), targetPosition, ref velocity, smoothTime);
     }
 }
