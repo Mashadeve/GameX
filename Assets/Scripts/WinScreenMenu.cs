@@ -7,8 +7,7 @@ public class WinScreenMenu : MonoBehaviour
 {
     public GameObject WinMenu;
     public void LoadMenu()
-    {
-        WinMenu.SetActive(true);
+    {       
         SceneManager.LoadScene("MainMenu");
     }
 }

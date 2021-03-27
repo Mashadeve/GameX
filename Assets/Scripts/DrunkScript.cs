@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DrunkScript : MonoBehaviour
 {
@@ -15,6 +16,14 @@ public class DrunkScript : MonoBehaviour
         end1 = -140;
         end2 = 140;
         StartCoroutine(Timer());
+    }
+
+    private void Update()
+    {
+        if (player.playerAlive == false)
+        {
+            SceneManager.LoadScene("EndScreen");
+        }
     }
 
     public void MoreDrunk(int beerPoints)
@@ -38,7 +47,6 @@ public class DrunkScript : MonoBehaviour
             if (currentPoints < end1)
             {
                 Debug.Log("You arent drunk at all");
-                Time.timeScale = 0f;
                 player.playerAlive = false;
                 pointer.GetComponent<RectTransform>().transform.position = _end.transform.position;
                 break;
@@ -46,11 +54,10 @@ public class DrunkScript : MonoBehaviour
             if (currentPoints > end2)
             {
                 Debug.Log("You are way too drunk");
-                Time.timeScale = 0f;
                 player.playerAlive = false;
                 pointer.GetComponent<RectTransform>().transform.position = _end2.transform.position;
                 break;
-            }
+            }           
         }
     }
 }
