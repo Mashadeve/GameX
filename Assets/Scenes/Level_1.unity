@@ -877,7 +877,7 @@ GameObject:
   m_Component:
   - component: {fileID: 82439771}
   - component: {fileID: 82439772}
-  m_Layer: 17
+  m_Layer: 14
   m_Name: miekka(viikinki)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -894,8 +894,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0.37298003, w: -0.9278394}
   m_LocalPosition: {x: 0.51, y: 0.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 156270660}
+  m_Children: []
   m_Father: {fileID: 525830232}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 43.799}
@@ -1474,36 +1473,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &156270659
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 156270660}
-  m_Layer: 16
-  m_Name: SwordHitbox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &156270660
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 156270659}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 82439771}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &161238107
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,6 +2798,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &350742873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 350742874}
+  m_Layer: 16
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &350742874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350742873}
+  m_LocalRotation: {x: -0, y: -0, z: 0.8844536, w: 0.4666283}
+  m_LocalPosition: {x: 0.5250021, y: 1.0205624, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 525830232}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &352123540
 GameObject:
   m_ObjectHideFlags: 0
@@ -3294,7 +3293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 454458968}
   - component: {fileID: 454458969}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: Kilpi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6001,7 +6000,7 @@ GameObject:
   m_Component:
   - component: {fileID: 832693842}
   - component: {fileID: 832693843}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: miekka1 1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10059,7 +10058,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1444849494}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10092,7 +10091,7 @@ GameObject:
   - component: {fileID: 1457424034}
   - component: {fileID: 1457424035}
   - component: {fileID: 1457424036}
-  m_Layer: 15
+  m_Layer: 14
   m_Name: Keppi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10832,7 +10831,7 @@ GameObject:
   - component: {fileID: 1626724314}
   - component: {fileID: 1626724315}
   - component: {fileID: 1626724316}
-  m_Layer: 13
+  m_Layer: 14
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -10955,12 +10954,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d7368abde9501f469883da27d52a13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 5491324175122388486, guid: c6e67a190992dd44498cdee4e2b606e8, type: 3}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 131072
+  attackPoint: {fileID: 350742874}
   beerManager: {fileID: 508426335}
   keppi: {fileID: 1457424036}
   drunkScript: {fileID: 490387779}
   movementSpeed: 10
   jumpForce: 18
+  attackRange: 0.42
   playerAlive: 0
   canJump: 0
   canMove: 0

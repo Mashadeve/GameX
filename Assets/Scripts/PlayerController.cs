@@ -6,11 +6,12 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private GameObject enemy;
+    [SerializeField] private LayerMask enemyLayers;
+    [SerializeField] private Transform attackPoint;
     [SerializeField] BeerSpawnManager beerManager;
     [SerializeField] Collider2D keppi;
     [SerializeField] DrunkScript drunkScript;
-    [SerializeField] public float movementSpeed = 2.0f, jumpForce;
+    [SerializeField] public float movementSpeed = 2.0f, jumpForce, attackRange;
     public bool playerAlive, canJump;
     public bool canMove;
 
@@ -73,7 +74,7 @@ public class PlayerController : MonoBehaviour
             drunkScript.MoreDrunk(10);
             DestroyPrefab();
         }
-        if (collision.gameObject.layer == 0)
+        if (collision.gameObject.layer == 18)
         {
             drunkScript.MoreDrunk(-14);
         }
@@ -87,8 +88,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Attack();
+        }
+        
+
         Block();
-        Attack();
+        
 
         Jumping();
         if (Input.GetKeyDown(KeyCode.Alpha0))
@@ -152,10 +159,14 @@ public class PlayerController : MonoBehaviour
     
     private void Attack()
     {
-        if (Input.GetMouseButtonDown(0))
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+        foreach(Collider2D enemy in hitEnemies)
         {
-            animator.SetTrigger("Attack");
+            Debug.Log("Osuu " + enemy);
+            enemy.GetComponent<Enemy>().Die(100);
         }
+        animator.SetTrigger("Attack");
     }
     private void Block()
     {
@@ -167,5 +178,14 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetBool("Block", false);
         }
+        
+    }
+    private void OnDrawGizmosSelected()
+    {
+        if(attackPoint == null)
+        {
+            return;
+        }
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
