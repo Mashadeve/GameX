@@ -164,7 +164,6 @@ public class PlayerController : MonoBehaviour
         foreach(Collider2D enemy in hitEnemies)
         {
             Debug.Log("Osuu " + enemy);
-            enemy.GetComponent<Enemy>().Die(100);
         }
         animator.SetTrigger("Attack");
     }
