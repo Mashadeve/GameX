@@ -4,19 +4,11 @@ using UnityEngine;
 
 public class Audio : MonoBehaviour
 {
-    [SerializeField] AudioSource rumpu;
-    // Start is called before the first frame update
-    void Start()
-    {
-        rumpu = GetComponent<AudioSource>();
-        rumpu.volume = 0.1f;
-        rumpu.PlayDelayed(5f);
-        
-    }
+    [SerializeField] AudioSource soitin;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        soitin.volume = 0.5f;
+        soitin.PlayDelayed(5f);
     }
 }
