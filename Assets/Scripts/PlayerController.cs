@@ -163,7 +163,6 @@ public class PlayerController : MonoBehaviour
 
         foreach(Collider2D enemy in hitEnemies)
         {
-            Debug.Log("Osuu " + enemy);
         }
         animator.SetTrigger("Attack");
     }
