@@ -11146,7 +11146,7 @@ MonoBehaviour:
   drunkScript: {fileID: 490387779}
   movementSpeed: 10
   jumpForce: 18
-  attackRange: 0.42
+  attackRange: 0.2
   playerAlive: 0
   canJump: 0
   canMove: 0
