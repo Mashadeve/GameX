@@ -24,7 +24,7 @@ public class BeerSpawnManager : MonoBehaviour
     }
     private void Update()
     {
-        beerCountText.text = beerCount.ToString("0");
+        beerCountText.text = beerCount.ToString("0") + " / " + " 5 ";
     }
 
     private void FixedUpdate()
