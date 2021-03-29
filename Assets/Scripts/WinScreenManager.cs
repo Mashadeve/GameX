@@ -12,7 +12,6 @@ public class WinScreenManager : MonoBehaviour
         if (collision.collider.CompareTag("Player"))
         {            
             SceneManager.LoadScene("WinScreen");
-            Debug.Log(collision + "osuu");
         }
     }
 
