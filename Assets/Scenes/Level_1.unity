@@ -3811,7 +3811,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beerCountText: {fileID: 684307306}
-  myPrefab: {fileID: 5639961999393145252, guid: 1042c0fc8cbc66b4b9be918d976ddb4d, type: 3}
+  myPrefab:
+  - {fileID: 5639961999393145252, guid: 1042c0fc8cbc66b4b9be918d976ddb4d, type: 3}
+  myPrefabClone:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   beerCount: 0
   currentBeerCount: 0
   canSpawn: 1
